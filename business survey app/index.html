@@ -17,7 +17,6 @@
 <body>
     <div class="glow-bg"></div>
     <div class="grid-overlay"></div>
-
     <header class="app-header">
         <div class="logo" id="appLogo">
             <span class="bolt">⚡</span>
@@ -31,7 +30,6 @@
         </div>
         <button class="admin-toggle-btn" id="headerAdminBtn" title="管理者画面を開く">📊 Dashboard</button>
     </header>
-
     <main class="main-container">
         <!-- WELCOME SCREEN -->
         <section class="card active" id="step-welcome">
@@ -42,7 +40,6 @@
                 日本のエナジードリンクに関する簡単な学術調査です。回答時間は約2分です。<br>
                 ご回答いただいた方には、<strong>スターバックス ドリンクチケット（500円分）の抽選コード</strong>を発行いたします！
             </p>
-
             <div class="incentive-box">
                 <div class="incentive-icon">☕</div>
                 <div class="incentive-info">
@@ -50,18 +47,15 @@
                     <p>回答完了後にその場でスロット抽選！当たりが出たら即座にコードを発行します。</p>
                 </div>
             </div>
-
             <button class="btn btn-primary" id="btn-start">
                 回答をスタートする
                 <span class="btn-icon">→</span>
             </button>
         </section>
-
         <!-- STEP 1: AGE & GAMER -->
         <section class="card" id="step-1">
             <h2 class="step-title"><span class="step-num">01</span> 基本属性について</h2>
             <p class="step-subtitle">あなたの年齢とゲーマーとしての属性を選択してください。</p>
-
             <form id="form-step-1">
                 <div class="form-group">
                     <label class="form-label">年齢（年代）をお答えください</label>
@@ -140,7 +134,6 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">自分自身を「ゲーマー」だと思いますか？</label>
                     <div class="options-grid grid-2">
@@ -162,19 +155,16 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-prev" data-target="step-welcome">戻る</button>
                     <button type="submit" class="btn btn-primary">次へ</button>
                 </div>
             </form>
         </section>
-
         <!-- STEP 2: RECOGNITION (CHECKBOXES) -->
         <section class="card" id="step-2">
             <h2 class="step-title"><span class="step-num">02</span> 認知しているブランド</h2>
             <p class="step-subtitle">あなたが名前やパッケージを知っているエナジードリンクをすべて選んでください。（複数回答可）</p>
-
             <form id="form-step-2">
                 <div class="form-group">
                     <div class="brand-check-grid">
@@ -183,7 +173,8 @@
                             <input type="checkbox" name="drinks" value="Monster">
                             <div class="brand-content monster-accent">
                                 <div class="brand-img-wrap">
-                                    <img src="images/monster.png" alt="Monster Energy" class="brand-can-img" loading="lazy">
+                                    <img src="images/monster.png" alt="Monster Energy" class="brand-can-img"
+                                        loading="lazy">
                                 </div>
                                 <div class="brand-details">
                                     <span class="brand-name">Monster Energy</span>
@@ -192,7 +183,6 @@
                                 <div class="custom-checkbox"></div>
                             </div>
                         </label>
-
                         <!-- Red Bull -->
                         <label class="brand-card">
                             <input type="checkbox" name="drinks" value="Red Bull" id="checkbox-redbull">
@@ -207,7 +197,6 @@
                                 <div class="custom-checkbox"></div>
                             </div>
                         </label>
-
                         <!-- ZONe -->
                         <label class="brand-card">
                             <input type="checkbox" name="drinks" value="ZONe">
@@ -222,13 +211,13 @@
                                 <div class="custom-checkbox"></div>
                             </div>
                         </label>
-
                         <!-- Nitro -->
                         <label class="brand-card">
                             <input type="checkbox" name="drinks" value="Nitro">
                             <div class="brand-content nitro-accent">
                                 <div class="brand-img-wrap">
-                                    <img src="images/nitro.png" alt="Monster Nitro" class="brand-can-img" loading="lazy">
+                                    <img src="images/nitro.png" alt="Monster Nitro" class="brand-can-img"
+                                        loading="lazy">
                                 </div>
                                 <div class="brand-details">
                                     <span class="brand-name">Nitro</span>
@@ -237,7 +226,6 @@
                                 <div class="custom-checkbox"></div>
                             </div>
                         </label>
-
                         <!-- Real Gold -->
                         <label class="brand-card">
                             <input type="checkbox" name="drinks" value="Real Gold">
@@ -252,7 +240,6 @@
                                 <div class="custom-checkbox"></div>
                             </div>
                         </label>
-
                         <!-- C4 Energy -->
                         <label class="brand-card">
                             <input type="checkbox" name="drinks" value="C4 energy">
@@ -267,7 +254,6 @@
                                 <div class="custom-checkbox"></div>
                             </div>
                         </label>
-
                         <!-- G FUEL -->
                         <label class="brand-card">
                             <input type="checkbox" name="drinks" value="G FUEL">
@@ -276,19 +262,27 @@
                                     <svg viewBox="0 0 100 140" class="brand-can-img" xmlns="http://www.w3.org/2000/svg">
                                         <defs>
                                             <linearGradient id="gfuelGrad" x1="0" y1="0" x2="1" y2="1">
-                                                <stop offset="0%" stop-color="#00ff88"/>
-                                                <stop offset="100%" stop-color="#0066ff"/>
+                                                <stop offset="0%" stop-color="#00ff88" />
+                                                <stop offset="100%" stop-color="#0066ff" />
                                             </linearGradient>
                                         </defs>
-                                        <rect x="15" y="5" width="70" height="130" rx="10" fill="#0d0d1a"/>
-                                        <rect x="15" y="5" width="70" height="130" rx="10" fill="url(#gfuelGrad)" opacity="0.15"/>
-                                        <rect x="15" y="5" width="70" height="1" rx="1" fill="#666"/>
-                                        <rect x="15" y="134" width="70" height="1" rx="1" fill="#666"/>
-                                        <text x="50" y="52" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" fill="url(#gfuelGrad)" letter-spacing="-1">G</text>
-                                        <text x="50" y="72" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" fill="white" letter-spacing="-1">FUEL</text>
-                                        <line x1="25" y1="80" x2="75" y2="80" stroke="#00ff88" stroke-width="1.5" opacity="0.5"/>
-                                        <text x="50" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#aaa" letter-spacing="1">ENERGY FORMULA</text>
-                                        <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#888">GAMING FUEL</text>
+                                        <rect x="15" y="5" width="70" height="130" rx="10" fill="#0d0d1a" />
+                                        <rect x="15" y="5" width="70" height="130" rx="10" fill="url(#gfuelGrad)"
+                                            opacity="0.15" />
+                                        <rect x="15" y="5" width="70" height="1" rx="1" fill="#666" />
+                                        <rect x="15" y="134" width="70" height="1" rx="1" fill="#666" />
+                                        <text x="50" y="52" text-anchor="middle" font-family="Arial Black, sans-serif"
+                                            font-weight="900" font-size="22" fill="url(#gfuelGrad)"
+                                            letter-spacing="-1">G</text>
+                                        <text x="50" y="72" text-anchor="middle" font-family="Arial Black, sans-serif"
+                                            font-weight="900" font-size="22" fill="white"
+                                            letter-spacing="-1">FUEL</text>
+                                        <line x1="25" y1="80" x2="75" y2="80" stroke="#00ff88" stroke-width="1.5"
+                                            opacity="0.5" />
+                                        <text x="50" y="100" text-anchor="middle" font-family="Arial, sans-serif"
+                                            font-size="7" fill="#aaa" letter-spacing="1">ENERGY FORMULA</text>
+                                        <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif"
+                                            font-size="7" fill="#888">GAMING FUEL</text>
                                     </svg>
                                 </div>
                                 <div class="brand-details">
@@ -300,19 +294,16 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-prev" data-target="step-1">戻る</button>
                     <button type="submit" class="btn btn-primary">次へ</button>
                 </div>
             </form>
         </section>
-
         <!-- STEP 3: RED BULL CONDITIONAL -->
         <section class="card" id="step-3-redbull">
             <h2 class="step-title"><span class="step-num">03</span> レッドブルとの接点</h2>
             <p class="step-subtitle">レッドブルを「知っている」とお答えの方へお伺いします。どのようにしてレッドブルを知りましたか？（複数選択可）</p>
-
             <form id="form-step-3">
                 <div class="form-group">
                     <div class="options-vertical">
@@ -324,7 +315,6 @@
                                 <span class="row-desc">ドリンクコーナーのディスプレイや陳列棚</span>
                             </span>
                         </label>
-
                         <label class="option-row checkbox-row">
                             <input type="checkbox" name="redbull_source" value="esports">
                             <span class="checkbox-box"></span>
@@ -333,7 +323,6 @@
                                 <span class="row-desc">プロゲーマーのユニフォーム、ゲーム画面中のロゴなど</span>
                             </span>
                         </label>
-
                         <label class="option-row checkbox-row">
                             <input type="checkbox" name="redbull_source" value="sns">
                             <span class="checkbox-box"></span>
@@ -342,7 +331,6 @@
                                 <span class="row-desc">インフルエンサー投稿や公式アカウント、Web広告</span>
                             </span>
                         </label>
-
                         <div class="other-row-container">
                             <label class="option-row checkbox-row" id="other-checkbox-label">
                                 <input type="checkbox" name="redbull_source" value="other"
@@ -357,19 +345,16 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-prev" data-target="step-2">戻る</button>
                     <button type="submit" class="btn btn-primary">次へ</button>
                 </div>
             </form>
         </section>
-
         <!-- STEP 4: CONSUMPTION FREQUENCY -->
         <section class="card" id="step-4">
             <h2 class="step-title"><span class="step-num">04</span> 飲用頻度と抽選エントリー</h2>
             <p class="step-subtitle">エナジードリンクの飲用頻度を選択し、スタバチケットの抽選エントリー希望を選択してください。</p>
-
             <form id="form-step-4">
                 <div class="form-group">
                     <label class="form-label">あなたはどのくらいの頻度でエナジードリンク（ブランド問わず）を飲みますか？</label>
@@ -379,37 +364,31 @@
                             <span class="radio-circle"></span>
                             <span class="row-text">全く飲まない (Never)</span>
                         </label>
-
                         <label class="option-row radio-row">
                             <input type="radio" name="frequency" value="less_than_once_month">
                             <span class="radio-circle"></span>
                             <span class="row-text">月に1回未満 (Less than once a month)</span>
                         </label>
-
                         <label class="option-row radio-row">
                             <input type="radio" name="frequency" value="once_month">
                             <span class="radio-circle"></span>
                             <span class="row-text">月に1回程度 (~Once a month)</span>
                         </label>
-
                         <label class="option-row radio-row">
                             <input type="radio" name="frequency" value="few_times_week">
                             <span class="radio-circle"></span>
                             <span class="row-text">週に数回程度 (~A few times a week)</span>
                         </label>
-
                         <label class="option-row radio-row">
                             <input type="radio" name="frequency" value="once_week">
                             <span class="radio-circle"></span>
                             <span class="row-text">週に1回程度 (~Once a week)</span>
                         </label>
-
                         <label class="option-row radio-row">
                             <input type="radio" name="frequency" value="once_day">
                             <span class="radio-circle"></span>
                             <span class="row-text">日に1回程度 (~Once a day)</span>
                         </label>
-
                         <label class="option-row radio-row">
                             <input type="radio" name="frequency" value="more_than_once_day">
                             <span class="radio-circle"></span>
@@ -417,39 +396,42 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="raffle-toggle-card">
                     <label class="option-row checkbox-row" style="margin-bottom: 0; cursor: pointer;">
                         <input type="checkbox" id="wants-raffle" name="wants_raffle">
                         <span class="checkbox-box" style="border-color: #fbbf24;"></span>
                         <span class="row-text">
-                            <span class="row-title" style="color: #fbbf24; font-weight: 800; display: flex; align-items: center; gap: 0.25rem;">🎟️ スターバックス ドリンクチケットの抽選に応募する</span>
+                            <span class="row-title"
+                                style="color: #fbbf24; font-weight: 800; display: flex; align-items: center; gap: 0.25rem;">🎟️
+                                スターバックス ドリンクチケットの抽選に応募する</span>
                             <span class="row-desc">アンケート回答者から抽選でチケット（500円相当）をプレゼント！希望者はチェックを入れてください。</span>
                         </span>
                     </label>
-                    
+
                     <div class="raffle-personal-fields" id="raffle-fields">
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label" style="font-size: 0.85rem; display: flex; justify-content: space-between;">
+                            <label class="form-label"
+                                style="font-size: 0.85rem; display: flex; justify-content: space-between;">
                                 <span>お名前（ニックネーム可） <span style="color: var(--color-redbull-red);">*</span></span>
                             </label>
                             <input type="text" id="raffle-name" class="input-premium" placeholder="例：エナドリ太郎">
                         </div>
                         <div class="form-group" style="margin-bottom: 0; margin-top: 1rem;">
-                            <label class="form-label" style="font-size: 0.85rem;">メールアドレス <span style="color: var(--color-redbull-red);">*</span></label>
-                            <input type="email" id="raffle-email" class="input-premium" placeholder="例：example@domain.com">
-                            <span style="font-size: 0.7rem; color: var(--color-text-muted); margin-top: 0.35rem; display: block;">※重複回答の防止および当選時のチケット送信にのみ使用いたします。</span>
+                            <label class="form-label" style="font-size: 0.85rem;">メールアドレス <span
+                                    style="color: var(--color-redbull-red);">*</span></label>
+                            <input type="email" id="raffle-email" class="input-premium"
+                                placeholder="例：example@domain.com">
+                            <span
+                                style="font-size: 0.7rem; color: var(--color-text-muted); margin-top: 0.35rem; display: block;">※重複回答の防止および当選時のチケット送信にのみ使用いたします。</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-prev" id="btn-prev-step-4">戻る</button>
                     <button type="submit" class="btn btn-primary submit-btn" id="btn-submit-survey">回答を送信する ⚡</button>
                 </div>
             </form>
         </section>
-
         <!-- STEP 5: SUBMITTING / LOTTERY ENTRY REGISTER -->
         <section class="card" id="step-lottery">
             <div class="lottery-animation-container">
@@ -470,7 +452,6 @@
                 </div>
             </div>
         </section>
-
         <!-- STEP 6: LOTTERY ENTRY CONFIRMATION TICKET -->
         <section class="card" id="step-result">
             <div class="ticket-glow"></div>
@@ -481,7 +462,6 @@
                 アンケートへのご回答ありがとうございました。スターバックス ドリンクチケット（500円相当）の抽選応募が正常に受け付けられました。
                 アンケート期間終了後、主催者側で厳正な抽選を行います。以下の<strong>「応募エントリーコード」</strong>は当選確認および賞品の受け取り時に必要となりますので、大切に保管してください。
             </p>
-
             <div class="starbucks-ticket" id="sbuxTicket">
                 <div class="ticket-header" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
                     <div class="ticket-brand">STARBUCKS GIFT RAFFLE ENTRY</div>
@@ -510,7 +490,6 @@
                         </div>
                         <span class="barcode-number" id="ticketBarcodeText">SBUX-ENTRY-2026-XXXX-YY</span>
                     </div>
-
                     <div class="ticket-code-box">
                         <span class="ticket-code-label">RAFFLE ENTRY CODE</span>
                         <div class="ticket-code-row">
@@ -526,10 +505,8 @@
                     <p class="ticket-expiry" style="color: #fbbf24;">結果発表: 回答締め切り後に集計</p>
                 </div>
             </div>
-
             <button class="btn btn-secondary" id="btn-restart-survey">新しい回答を開始する</button>
         </section>
-
         <!-- ADMIN DASHBOARD PANEL -->
         <section class="card admin-panel-card" id="admin-panel" style="display: none;">
             <div class="admin-header">
@@ -541,7 +518,6 @@
                     <button class="btn btn-secondary btn-sm" id="btn-close-admin">閉じる</button>
                 </div>
             </div>
-
             <div class="admin-stats-summary">
                 <div class="stat-box">
                     <span class="stat-label">総回答数</span>
@@ -561,7 +537,6 @@
                         style="color: #fbbf24; text-shadow: 0 0 10px rgba(251,191,36,0.25);">0</span>
                 </div>
             </div>
-
             <div class="admin-charts-grid">
                 <!-- Age distribution chart -->
                 <div class="chart-container">
@@ -570,7 +545,6 @@
                         <!-- JS injects elements -->
                     </div>
                 </div>
-
                 <!-- Energy drink recognition chart -->
                 <div class="chart-container">
                     <h3>⚡ エナジードリンクブランド認知率</h3>
@@ -578,7 +552,6 @@
                         <!-- JS injects elements -->
                     </div>
                 </div>
-
                 <!-- Red Bull acquisition source chart -->
                 <div class="chart-container full-width-chart">
                     <h3>🐂 レッドブルの認知ルート内訳 (回答者内)</h3>
@@ -586,7 +559,6 @@
                         <!-- JS injects elements -->
                     </div>
                 </div>
-
                 <!-- Drink Frequency distribution -->
                 <div class="chart-container">
                     <h3>⏰ エナジードリンクの平均飲用頻度</h3>
@@ -595,7 +567,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Interactive Raffle Drawing Module -->
             <div class="table-container drawing-module-container"
                 style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%); border: 1px dashed rgba(251, 191, 36, 0.25); margin-bottom: 2rem;">
@@ -620,7 +591,6 @@
                         🔄 抽選をリセット
                     </button>
                 </div>
-
                 <div id="draw-results-display"
                     style="display: none; background: rgba(0,0,0,0.25); border: 1px dashed rgba(251, 191, 36, 0.2); border-radius: 12px; padding: 1.25rem; margin-bottom: 0.5rem; animation: fadeIn 0.4s ease;">
                     <h4
@@ -632,7 +602,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="table-container">
                 <h3>📋 回答データ一覧 (最新順)</h3>
                 <div class="responsive-table">
@@ -662,31 +631,32 @@
             </div>
         </section>
     </main>
-
     <!-- ADMIN AUTHENTICATION MODAL -->
     <div class="auth-modal" id="adminAuthModal">
         <div class="auth-card">
             <div class="auth-card-glow"></div>
             <h3 class="auth-title">🔐 管理者認証</h3>
             <p class="auth-desc">ダッシュボードにアクセスするには管理者パスワードを入力してください。</p>
-            
+
             <div class="auth-input-group">
                 <label class="auth-label" for="admin-password">Password</label>
-                <input type="password" id="admin-password" class="input-premium" placeholder="••••••••" autocomplete="current-password">
+                <input type="password" id="admin-password" class="input-premium" placeholder="••••••••"
+                    autocomplete="current-password">
                 <div class="auth-error-msg" id="auth-error-message">❌ パスワードが正しくありません</div>
             </div>
-            
+
             <div class="auth-btn-group">
                 <button type="button" class="btn btn-secondary" id="btn-cancel-auth">キャンセル</button>
                 <button type="button" class="btn btn-primary" id="btn-submit-auth">ログイン</button>
             </div>
         </div>
     </div>
-
     <footer class="app-footer">
         <p class="copyright">© 2026 ENERGY SURVEY JP. All Rights Reserved. Double click logo to toggle Dashboard.</p>
     </footer>
-
+    <!-- Firebase SDK (Compat version for absolute easiest integration) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="app.js"></script>
 </body>
 

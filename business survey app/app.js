@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const firebaseConfig = {
+        apiKey: "AIzaSyA8qJRMss8RbpCXB86yb4Fa1_RfMk_elU8",
+        authDomain: "bmia-cfe26.firebaseapp.com",
+        projectId: "bmia-cfe26",
+        storageBucket: "bmia-cfe26.firebasestorage.app",
+        messagingSenderId: "896865410144",
+        appId: "1:896865410144:web:0688857b8fc47344f0f705",
+        measurementId: "G-1QCHEP29Y7"
+    };
+
+    // Firebase Initialization & Feature Detection
+    let db = null;
+    let isFirebaseActive = false;
+
+    if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            isFirebaseActive = true;
+            console.log("⚡ Firebase Cloud Firestore initialized successfully! Online sync active.");
+        } catch (error) {
+            console.error("❌ Firebase initialization failed:", error);
+        }
+    } else {
+        console.warn("⚠️ Firebase is not configured yet. App running in offline/localStorage fallback mode.");
+    }
+
     // --- Application State ---
     let currentStepId = 'step-welcome';
     let isAdminAuthenticated = false; // Admin auth state
@@ -91,14 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateProgress(stepId) {
         const stepNum = getStepNumber(stepId);
-        
+
         if (stepNum === 0) {
             progressContainer.style.display = 'none';
             return;
         }
 
         progressContainer.style.display = 'flex';
-        
+
         // Calculate fill percentage
         // Red Bull is conditional, so let's adjust progress mapping visually
         let fillPercent = 0;
@@ -141,16 +168,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetCard.style.display = 'block';
                 targetCard.classList.add('active');
             }
-            
+
             // Clean up old card display states if switching standard survey steps
             if (currentStepId && currentStepId !== targetStepId && currentStepId !== 'admin-panel') {
                 document.getElementById(currentStepId).style.display = 'none';
             }
-            
+
             currentStepId = targetStepId;
             updateProgress(targetStepId);
         }
-        
+
         // Scroll to top of viewport smoothly
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -175,21 +202,21 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             initAudio();
             if (!audioCtx) return;
-            
+
             setTimeout(() => {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
-                
+
                 osc.type = type;
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                
+
                 gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
                 // Smooth release
                 gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-                
+
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
-                
+
                 osc.start();
                 osc.stop(audioCtx.currentTime + duration);
             }, delay * 1000);
@@ -344,10 +371,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function triggerLotterySubmission() {
         switchStep('step-lottery');
-        
+
         // Hide scratch panel initially
         scratchPanel.style.display = 'none';
-        
+
         if (surveyState.wants_lottery) {
             slotStatusText.textContent = 'エントリーデータを送信中...';
             surveyState.ticketCode = generateStarbucksCode();
@@ -355,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slotStatusText.textContent = 'アンケートデータを送信中...';
             surveyState.ticketCode = ''; // No code
         }
-        
+
         surveyState.timestamp = new Date().toISOString();
 
         // Save immediately to local storage
@@ -365,29 +392,29 @@ document.addEventListener('DOMContentLoaded', () => {
         let spins = 0;
         const maxSpins = 15;
         const reels = ['🎟️', '⚡', '⭐', '🔥', '🎮', '🎯'];
-        
+
         reel1.classList.add('spinning');
         reel2.classList.add('spinning');
         reel3.classList.add('spinning');
 
         const interval = setInterval(() => {
             spins++;
-            
+
             // Randomize reel text while spinning
             reel1.textContent = reels[Math.floor(Math.random() * reels.length)];
             reel2.textContent = reels[Math.floor(Math.random() * reels.length)];
             reel3.textContent = reels[Math.floor(Math.random() * reels.length)];
-            
+
             playSpinSound();
 
             if (spins >= maxSpins) {
                 clearInterval(interval);
-                
+
                 // Finalize winning slots (3 of a kind!)
                 reel1.classList.remove('spinning');
                 reel2.classList.remove('spinning');
                 reel3.classList.remove('spinning');
-                
+
                 if (surveyState.wants_lottery) {
                     reel1.textContent = '🎟️';
                     reel2.textContent = '🎟️';
@@ -399,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     reel3.textContent = '👍';
                     slotStatusText.innerHTML = '<span style="color: var(--color-monster-green); font-weight: 800;">✨ THANK YOU! ✨</span>';
                 }
-                
+
                 // Play chord
                 playWinningSound();
 
@@ -448,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultSubtitle.textContent = 'ご入力いただいた回答内容は正常に送信されました。エナジードリンク認知度および飲用実態調査にご協力いただき、心より感謝申し上げます。';
             sbuxTicket.style.display = 'none';
         }
-        
+
         switchStep('step-result');
     });
 
@@ -458,9 +485,9 @@ document.addEventListener('DOMContentLoaded', () => {
         navigator.clipboard.writeText(textToCopy).then(() => {
             btnCopyCode.textContent = 'Copied!';
             btnCopyCode.classList.add('copied');
-            
+
             playSynthTone(600, 'sine', 0.2); // Nice feedback beep
-            
+
             setTimeout(() => {
                 btnCopyCode.textContent = 'Copy';
                 btnCopyCode.classList.remove('copied');
@@ -477,7 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formStep2.reset();
         formStep3.reset();
         formStep4.reset();
-        
+
         // Hide other text box
         rbTextOther.style.display = 'none';
 
@@ -510,13 +537,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function saveResponseToLocal(record) {
+        const localRecord = JSON.parse(JSON.stringify(record));
+
+        // 1. Save to local storage as fallback/backup
         const responses = getLocalResponses();
-        // Deep copy the record object
-        responses.push(JSON.parse(JSON.stringify(record)));
+        responses.push(localRecord);
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(responses));
-        
-        // Update live charts
-        renderDashboardData();
+
+        // 2. If Firebase Firestore is active, push document to Cloud Firestore
+        if (isFirebaseActive && db) {
+            db.collection("responses").add(localRecord)
+                .then((docRef) => {
+                    console.log("☁️ Data successfully synced to Firestore with ID:", docRef.id);
+                    // Live listeners will handle renderDashboardData automatically,
+                    // but we call it here to be safe and responsive.
+                    renderDashboardData();
+                })
+                .catch((error) => {
+                    console.error("❌ Error syncing data to Cloud Firestore:", error);
+                });
+        } else {
+            // Local fallback render
+            renderDashboardData();
+        }
     }
 
 
@@ -590,9 +633,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Dashboard Math & Dynamic Render Graphics ---
 
+    let firestoreUnsubscribe = null;
+
     function renderDashboardData() {
-        const responses = getLocalResponses();
-        
+        if (isFirebaseActive && db) {
+            if (firestoreUnsubscribe) return; // Already listening
+
+            console.log("☁️ Subscribed to Cloud Firestore real-time dashboard snapshot updates.");
+            firestoreUnsubscribe = db.collection("responses").onSnapshot((snapshot) => {
+                const cloudResponses = [];
+                snapshot.forEach((doc) => {
+                    cloudResponses.push(doc.data());
+                });
+                console.log(`☁️ Firestore Sync: Retrieved ${cloudResponses.length} total responses.`);
+                renderChartsAndTable(cloudResponses);
+            }, (error) => {
+                console.error("❌ Firestore real-time listen failed:", error);
+                renderChartsAndTable(getLocalResponses());
+            });
+        } else {
+            renderChartsAndTable(getLocalResponses());
+        }
+    }
+
+    function renderChartsAndTable(responses) {
+
         // Metrics Summary calculations
         const totalCount = responses.length;
         adminStatTotal.textContent = totalCount;
@@ -602,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
             adminStatRedbull.textContent = '0%';
             adminStatTickets.textContent = 0;
             adminTableBody.innerHTML = `<tr><td colspan="10" style="text-align: center; color: var(--color-text-muted);">回答データはまだありません。</td></tr>`;
-            
+
             // Empty charts
             document.getElementById('chart-age').innerHTML = '<div style="color: var(--color-text-muted); font-size: 0.85rem; padding: 2rem; text-align: center;">回答データを待機中...</div>';
             document.getElementById('chart-brands').innerHTML = '<div style="color: var(--color-text-muted); font-size: 0.85rem; padding: 2rem; text-align: center;">回答データを待機中...</div>';
@@ -635,12 +700,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
             });
 
-            const gamerBadge = r.gamer === 'yes' 
-                ? '<span class="table-badge gamer-yes">ゲーマー</span>' 
+            const gamerBadge = r.gamer === 'yes'
+                ? '<span class="table-badge gamer-yes">ゲーマー</span>'
                 : '<span class="table-badge gamer-no">一般</span>';
 
             const drinksBadges = r.drinks.map(d => `<span class="table-badge" style="border: 1px solid rgba(255,255,255,0.1)">${d}</span>`).join(' ');
-            
+
             // Map keys of red bull sources to human friendly labels
             const sourceMap = { combini: 'コンビニ', esports: 'eスポーツ', sns: 'SNS広告', other: 'その他' };
             const mappedSources = r.redbull_source ? r.redbull_source.map(s => {
@@ -765,7 +830,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 7. Red Bull Acquisition Sources (Horizontal Progress Cards)
         const sourceCounts = { combini: 0, esports: 0, sns: 0, other: 0 };
         let redbullRespondents = 0;
-        
+
         responses.forEach(r => {
             if (r.drinks.includes('Red Bull')) {
                 redbullRespondents++;
@@ -800,7 +865,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         });
-        
+
         if (redbullRespondents === 0) {
             document.getElementById('chart-redbull-sources').innerHTML = '<div style="color: var(--color-text-muted); font-size: 0.85rem; padding: 2rem; text-align: center;">回答データの中にレッドブル認知者はいません。</div>';
         } else {
@@ -886,13 +951,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let name = '';
             let email = '';
             let ticketCode = '';
-            
+
             if (wants_lottery) {
                 name = namesPool[Math.floor(Math.random() * namesPool.length)];
                 email = `mock_${Math.floor(Math.random() * 9000) + 1000}@example.com`;
                 ticketCode = generateStarbucksCode();
             }
-            
+
             // Random timestamp in the last 2 days
             const timeOffset = Math.random() * 172800000; // up to 48 hours in ms
             const timestamp = new Date(Date.now() - timeOffset).toISOString();
@@ -951,7 +1016,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formattedDate = new Date(r.timestamp).toLocaleString('ja-JP');
             const gamerText = r.gamer === 'yes' ? 'ゲーマー' : '非ゲーマー';
             const drinksText = r.drinks.join('|');
-            
+
             const sourcesList = r.redbull_source ? r.redbull_source.map(s => {
                 if (s === 'other' && r.redbull_source_other) return `その他 (${r.redbull_source_other})`;
                 return sourceMap[s] || s;
@@ -983,7 +1048,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.setAttribute('href', url);
-        link.setAttribute('download', `energy_survey_export_${new Date().toISOString().slice(0,10)}.csv`);
+        link.setAttribute('download', `energy_survey_export_${new Date().toISOString().slice(0, 10)}.csv`);
         link.style.visibility = 'hidden';
         document.body.appendChild(link);
         link.click();
@@ -1000,8 +1065,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawResultsDisplay = document.getElementById('draw-results-display');
     const drawResultsList = document.getElementById('draw-results-list');
 
+    let winnersUnsubscribe = null;
+
     function renderRaffleWinners() {
-        const winners = JSON.parse(localStorage.getItem('energy_survey_winners') || '[]');
+        if (isFirebaseActive && db) {
+            if (winnersUnsubscribe) return; // Already listening
+
+            winnersUnsubscribe = db.collection("config").doc("winners").onSnapshot((doc) => {
+                const data = doc.data();
+                const cloudWinners = data ? (data.list || []) : [];
+                localStorage.setItem('energy_survey_winners', JSON.stringify(cloudWinners));
+                updateWinnersUI(cloudWinners);
+            }, (error) => {
+                console.error("❌ Firestore winners listen failed:", error);
+                updateWinnersUI(getOfflineWinners());
+            });
+        } else {
+            updateWinnersUI(getOfflineWinners());
+        }
+    }
+
+    function getOfflineWinners() {
+        return JSON.parse(localStorage.getItem('energy_survey_winners') || '[]');
+    }
+
+    function updateWinnersUI(winners) {
         if (winners.length > 0) {
             drawResultsDisplay.style.display = 'block';
             btnResetDraw.style.display = 'inline-flex';
@@ -1016,14 +1104,37 @@ document.addEventListener('DOMContentLoaded', () => {
             btnResetDraw.style.display = 'none';
             drawResultsList.innerHTML = '';
         }
+
+        // Dynamically highlight winner rows in the existing table
+        const rows = document.querySelectorAll('#admin-table-body tr');
+        rows.forEach(row => {
+            const codeCell = row.querySelector('.table-code');
+            if (codeCell) {
+                // Strip existing badge to find raw code
+                const rawCode = codeCell.textContent.replace('🏆 当選', '').trim();
+                const isWinner = winners.includes(rawCode);
+                if (isWinner) {
+                    row.classList.add('winner-row');
+                    if (!codeCell.querySelector('.badge-winner')) {
+                        codeCell.innerHTML = `<span class="table-badge badge-winner">🏆 当選</span> ${rawCode}`;
+                    }
+                } else {
+                    row.classList.remove('winner-row');
+                    const badge = codeCell.querySelector('.badge-winner');
+                    if (badge) {
+                        codeCell.innerHTML = rawCode;
+                    }
+                }
+            }
+        });
     }
 
     if (btnRunDraw) {
         btnRunDraw.addEventListener('click', () => {
+            // Fetch newest responses depending on mode
             const responses = getLocalResponses();
-            // Filter only candidates who entered the lottery
             const eligibleResponses = responses.filter(r => r.wants_lottery && r.ticketCode);
-            
+
             if (eligibleResponses.length === 0) {
                 alert('スタバ抽選にエントリーした応募データがまだありません。\n回答を入力するか、モックデータを生成してから実行してください。');
                 return;
@@ -1040,23 +1151,23 @@ document.addEventListener('DOMContentLoaded', () => {
             btnRunDraw.disabled = true;
             btnResetDraw.style.display = 'none';
             drawResultsDisplay.style.display = 'block';
-            
+
             let frame = 0;
             const maxFrames = 15;
-            
+
             const tickInterval = setInterval(() => {
                 frame++;
-                
+
                 // Play futuristic synthetic ticking sounds
                 playSynthTone(300 + Math.random() * 300, 'sawtooth', 0.05);
-                
+
                 // Suspense flicker list
                 const tempWinners = [];
                 const shuffledTemp = [...eligibleResponses].sort(() => 0.5 - Math.random());
                 for (let k = 0; k < count; k++) {
                     if (shuffledTemp[k]) tempWinners.push(shuffledTemp[k].ticketCode);
                 }
-                
+
                 drawResultsList.innerHTML = tempWinners.map(code => `
                     <div class="winner-ticket-card" style="opacity: 0.6; border-color: var(--color-monster-green); color: var(--color-monster-green);">
                         <span>🎲 抽選中...</span>
@@ -1066,21 +1177,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (frame >= maxFrames) {
                     clearInterval(tickInterval);
-                    
+
                     // Settle winners
                     const shuffledFinal = [...eligibleResponses].sort(() => 0.5 - Math.random());
                     const selectedWinners = shuffledFinal.slice(0, count).map(r => r.ticketCode);
-                    
+
+                    // 1. Save to local storage for backup
                     localStorage.setItem('energy_survey_winners', JSON.stringify(selectedWinners));
-                    
+
+                    // 2. Sync to Firebase Firestore online
+                    if (isFirebaseActive && db) {
+                        db.collection("config").doc("winners").set({ list: selectedWinners })
+                            .then(() => console.log("☁️ Winner draw synced to Firestore config."))
+                            .catch(err => console.error("❌ Error syncing winners to Firestore:", err));
+                    }
+
                     // Play glorious winning melody
                     playWinningSound();
-                    
-                    // Render fully highlighted dashboard and winner boxes
-                    renderDashboardData();
-                    renderRaffleWinners();
-                    
+
+                    // Render locally as fallback (will also trigger automatically from Firestore snap)
+                    updateWinnersUI(selectedWinners);
+
                     btnRunDraw.disabled = false;
+                    btnResetDraw.style.display = 'inline-flex';
                 }
             }, 100);
         });
@@ -1090,9 +1209,15 @@ document.addEventListener('DOMContentLoaded', () => {
         btnResetDraw.addEventListener('click', () => {
             if (confirm('現在の当選者決定データをクリアして、再抽選を実行できるようにしますか？\n(回答データ自体は消去されません)')) {
                 localStorage.removeItem('energy_survey_winners');
+
+                if (isFirebaseActive && db) {
+                    db.collection("config").doc("winners").delete()
+                        .then(() => console.log("☁️ Winners reset in Cloud Firestore."))
+                        .catch(err => console.error("❌ Error resetting Firestore winners:", err));
+                }
+
                 playSynthTone(250, 'sine', 0.3);
-                renderDashboardData();
-                renderRaffleWinners();
+                updateWinnersUI([]);
             }
         });
     }
