@@ -432,6 +432,483 @@
                 </div>
             </form>
         </section>
+                <section class="card" id="step-5-esports">
+            <h2 class="step-title"><span class="step-num">05</span> eスポーツとエナジードリンク</h2>
+            <p class="step-subtitle">Red Bullのeスポーツ戦略がどのように購買意欲に影響しているかを調べています。</p>
+            <form id="form-step-5">
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q1</span>
+                        あなたはeスポーツの試合・配信をどのくらい見ますか？
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row radio-row">
+                            <input type="radio" name="esports_watch_freq" value="never" required>
+                            <span class="radio-circle"></span>
+                            <span class="row-text">全く見ない</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="esports_watch_freq" value="rarely">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">たまに見る（月1回未満）</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="esports_watch_freq" value="sometimes">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">ときどき見る（月1〜3回）</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="esports_watch_freq" value="often">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">よく見る（週1回以上）</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="esports_watch_freq" value="daily">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">ほぼ毎日見る</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q2</span>
+                        Red Bullがeスポーツ分野で行っている活動を知っていますか？（複数選択可）
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_awareness" value="sponsored_players">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">プロゲーマーへのスポンサー</span>
+                                <span class="row-desc">ZywOo、Shroud、ときど など著名プレイヤーとの契約</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_awareness" value="sponsored_events">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">大会・イベントのスポンサー</span>
+                                <span class="row-desc">Red Bull Kumite（格ゲー）、Red Bull Home Ground（LoL）など</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_awareness" value="sponsored_teams">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">チームスポンサー・ユニフォームロゴ</span>
+                                <span class="row-desc">プロチームのジャージやユニフォームにロゴが入っている</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_awareness" value="streamer_collab">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">Youtuber・ストリーマーとのコラボ</span>
+                                <span class="row-desc">配信内でRed Bullを飲む・紹介する動画</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_awareness" value="ingame_logo">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">ゲーム配信画面内のロゴ表示</span>
+                                <span class="row-desc">試合中のアリーナや画面上にロゴが表示される</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_awareness" value="none">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">知らない / 見たことがない</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q3</span>
+                        eスポーツでのRed Bull広告・スポンサーシップを見ることで、<br>Red Bullを「買ってみたい」「飲んでみたい」という気持ちになりますか？
+                    </label>
+                    <div class="likert-scale">
+                        <div class="likert-labels">
+                            <span>全くならない</span>
+                            <span>非常になる</span>
+                        </div>
+                        <div class="likert-options">
+                            <label class="likert-item">
+                                <input type="radio" name="rb_esports_purchase_intent" value="1" required>
+                                <span class="likert-btn">1</span>
+                                <span class="likert-label">全く<br>ならない</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_esports_purchase_intent" value="2">
+                                <span class="likert-btn">2</span>
+                                <span class="likert-label">あまり<br>ならない</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_esports_purchase_intent" value="3">
+                                <span class="likert-btn">3</span>
+                                <span class="likert-label">どちらとも<br>いえない</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_esports_purchase_intent" value="4">
+                                <span class="likert-btn">4</span>
+                                <span class="likert-label">やや<br>なる</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_esports_purchase_intent" value="5">
+                                <span class="likert-btn">5</span>
+                                <span class="likert-label">非常に<br>なる</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q4</span>
+                        直近でRed Bullを購入した、または購入を検討したきっかけは何でしたか？（最も近いものを1つ）
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_purchase_trigger" value="esports_ad" required>
+                            <span class="radio-circle"></span>
+                            <span class="row-text">eスポーツ大会・ストリーマー配信での広告を見た</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_purchase_trigger" value="sns">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">SNS（X/TikTok/Instagramなど）の投稿・広告</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_purchase_trigger" value="friend_rec">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">友人・知人のすすめ</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_purchase_trigger" value="store_display">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">コンビニ・店頭で見かけて</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_purchase_trigger" value="habit">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">もともと習慣的に飲んでいる</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_purchase_trigger" value="not_purchased">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">Red Bullを購入・検討したことはない</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q5</span>
+                        eスポーツでのRed Bullの活動を見て、Red Bullのブランドイメージはどう変わりましたか？
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_brand_image_change" value="very_positive" required>
+                            <span class="radio-circle"></span>
+                            <span class="row-text">とてもポジティブになった（かっこいい・買いたいと思った）</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_brand_image_change" value="slightly_positive">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">少しポジティブになった</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_brand_image_change" value="no_change">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">特に変わらない</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_brand_image_change" value="slightly_negative">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">少しネガティブになった（押しつけがましい等）</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_brand_image_change" value="not_seen">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">そもそも見たことがないので分からない</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary btn-prev" id="btn-prev-step-4">戻る</button>
+                    <button type="submit" class="btn btn-primary submit-btn">次へ</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card" id="step-6-deep">
+            <h2 class="step-title"><span class="step-num">06</span> eスポーツ×Red Bull 深掘り調査</h2>
+            <p class="step-subtitle">あなたのeスポーツ体験とRed Bullの関係についてさらに詳しく教えてください。</p>
+            <form id="form-step-6">
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q6</span>
+                        eスポーツ関連でRed Bullを「飲みたい・買いたい」と思わせるのはどれですか？（複数選択可）
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_content_impact" value="pro_drinking">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">好きなプロゲーマーが飲んでいる場面</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_content_impact" value="arena_logo">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">大会会場のロゴ・看板</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_content_impact" value="streamer_drinking">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">ストリーマーが配信中に飲む</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_content_impact" value="tense_moment_logo">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">試合前や緊張シーンで映るブランドロゴ</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_content_impact" value="rb_original_event">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">Red Bull主催のユニークな大会フォーマット</span>
+                                <span class="row-desc">例：Red Bull Kumite、Red Bull Home Ground など</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_content_impact" value="none">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">特に何もない</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q7</span>
+                        Red Bullのeスポーツスポンサーやストリーマーコラボを見た後、実際にどんな行動をしましたか？（複数選択可）
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_behavior" value="store_search">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">店頭でRed Bullを探した</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_behavior" value="online_search">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">ネットで価格・通販を調べた</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_behavior" value="recommended">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">友達や家族にRed Bullを勧めた</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_behavior" value="sns_share">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">SNSでRed Bullの投稿をシェア・いいねした</span>
+                            </span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="rb_esports_behavior" value="nothing">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text">
+                                <span class="row-title">特に何もしなかった</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q8</span>
+                        Red Bullはeスポーツやゲームのイメージにどのくらい「合っている」と感じますか？
+                    </label>
+                    <div class="likert-scale">
+                        <div class="likert-labels">
+                            <span>全く合わない</span>
+                            <span>非常に合う</span>
+                        </div>
+                        <div class="likert-options">
+                            <label class="likert-item">
+                                <input type="radio" name="rb_brand_fit" value="1" required>
+                                <span class="likert-btn">1</span>
+                                <span class="likert-label">全く<br>合わない</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_brand_fit" value="2">
+                                <span class="likert-btn">2</span>
+                                <span class="likert-label">あまり<br>合わない</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_brand_fit" value="3">
+                                <span class="likert-btn">3</span>
+                                <span class="likert-label">どちらとも<br>いえない</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_brand_fit" value="4">
+                                <span class="likert-btn">4</span>
+                                <span class="likert-label">やや<br>合う</span>
+                            </label>
+                            <label class="likert-item">
+                                <input type="radio" name="rb_brand_fit" value="5">
+                                <span class="likert-btn">5</span>
+                                <span class="likert-label">非常に<br>合う</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q9</span>
+                        eスポーツ・ゲームと最も「結びついている」と感じるエナジードリンクはどれですか？（1つ選択）
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_esports_top_brand" value="Red Bull" required>
+                            <span class="radio-circle"></span>
+                            <span class="row-text">Red Bull</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_esports_top_brand" value="Monster">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">Monster Energy</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_esports_top_brand" value="ZONe">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">ZONe</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_esports_top_brand" value="G FUEL">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">G FUEL</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_esports_top_brand" value="C4 energy">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">C4 Energy</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="rb_esports_top_brand" value="other">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">その他</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q10</span>
+                        eスポーツや配信を主にどこで見ますか？（複数選択可）
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="youtube">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">YouTube</span></span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="twitch">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">Twitch</span></span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="tiktok">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">TikTok</span></span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="x_twitter">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">X（旧Twitter）</span></span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="instagram">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">Instagram</span></span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="mildom">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">Mildom（ミルダム）</span></span>
+                        </label>
+                        <label class="option-row checkbox-row">
+                            <input type="checkbox" name="esports_platform" value="openrec">
+                            <span class="checkbox-box"></span>
+                            <span class="row-text"><span class="row-title">OPENREC</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span class="step-q-tag">Q11</span>
+                        平均してひと月に何時間くらいゲームをプレイしますか？
+                    </label>
+                    <div class="options-vertical">
+                        <label class="option-row radio-row">
+                            <input type="radio" name="monthly_game_hours" value="0" required>
+                            <span class="radio-circle"></span>
+                            <span class="row-text">0時間（プレイしない）</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="monthly_game_hours" value="1_5">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">1〜5時間</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="monthly_game_hours" value="6_15">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">6〜15時間</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="monthly_game_hours" value="16_30">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">16〜30時間</span>
+                        </label>
+                        <label class="option-row radio-row">
+                            <input type="radio" name="monthly_game_hours" value="31plus">
+                            <span class="radio-circle"></span>
+                            <span class="row-text">31時間以上</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary btn-prev" id="btn-prev-step-4">戻る</button>
+                    <button type="submit" class="btn btn-primary submit-btn">次へ</button>
+                </div>
+            </form>
+        </section>
         <!-- STEP 5: SUBMITTING / LOTTERY ENTRY REGISTER -->
         <section class="card" id="step-lottery">
             <div class="lottery-animation-container">
